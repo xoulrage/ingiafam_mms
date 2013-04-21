@@ -1,0 +1,258 @@
+/*
+	Back Office - General Layout CSS
+	
+	Created By: RYC
+	v1.0
+*/
+
+/*
+	Page Header
+	--------------------		
+*/
+
+#header {
+	width: 100%; 
+	min-height:40px; 
+	background-color: #231f20;
+}
+
+#header #title_header {
+	padding: 10px 20px;
+	width: 290px;
+	float: left;
+}
+
+#header #top_nav {
+	margin: 0px 10px;
+	position: absolute;
+	left: 310px; top: 0;
+	z-index: 99px;
+}
+
+#header #top_nav .nav {
+	min-width: 130px;
+	padding: 13px 10px;
+	float: left;
+}
+
+#header #top_nav .nav:hover {
+	color: #000000;
+	background-color: #FFFFFF;
+	
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	box-shadow: 0 0 7px 1px #848484;
+	-moz-box-shadow: 0 0 7px 1px #848484;
+	-webkit-box-shadow: 0 0 7px 1px #848484;	
+}
+
+#header #top_nav .nav .subnav {	
+	padding: 10px 10px 5px 10px;
+	line-height: 22px;
+	background-color: #FFFFFF;	
+	display: none;
+}
+
+/*
+	Page Content
+	--------------------		
+*/
+
+#page_content {
+	padding: 15px 0;
+	width: 100%;
+	min-height: 470px;
+}
+
+#page_content #content_full {
+	width: 98%;
+	min-height: 470px;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	box-shadow: 0 0 3px 1px #848484;
+	-moz-box-shadow: 0 0 3px 1px #848484;
+	-webkit-box-shadow: 0 0 3px 1px #848484;
+}
+
+#page_content #content_left {
+	width: 73%;
+	min-height: 470px;
+	margin: 0 12px 0 12px;
+	background-color: #FFFFFF;	
+	float: left;
+
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	box-shadow: 0 0 3px 1px #848484;
+	-moz-box-shadow: 0 0 3px 1px #848484;
+	-webkit-box-shadow: 0 0 3px 1px #848484;
+}
+
+#page_content #content_right {
+	width: 305px;
+	min-height: 470px;
+	margin: 0 12px 0 0;
+	background-color: #FFFFFF;
+	float: right;
+	
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	box-shadow: 0 0 3px 1px #848484;
+	-moz-box-shadow: 0 0 3px 1px #848484;
+	-webkit-box-shadow: 0 0 3px 1px #848484;
+}
+
+#content_title {
+	padding: 15px 20px;
+	border-bottom: 1px #CCC solid;
+}
+
+#content_title_small {
+	padding: 15px 20px;
+	border-bottom: 1px #CCC solid;
+}
+
+#content {
+	padding: 15px 20px;
+	text-align: justify;
+}
+
+/*
+	Page Footer
+	--------------------		
+*/
+
+#footer {
+	width: 100%; 
+	min-height:40px;
+}
+
+#footer #copyright {
+	padding: 10px 20px;
+	text-align: right;
+}
+
+/*
+	Project Gallery
+	--------------------		
+*/
+
+#gallery {
+	width: 100%;
+	min-height: 100px;
+	padding-bottom: 10px;
+	border: 1px #F2F2F2 solid;
+}
+
+#gallery ul {
+	padding: 10px 10px;
+	line-style: none;
+}
+
+#gallery ul li {
+	padding: 10px 10px;
+	float: left;
+}
+
+#gallery ul li #top {
+	width: 80px;
+	height: 20px;
+	text-align: center;	
+	cursor: pointer;
+	position: absolute;
+	z-index: 10;
+	opacity: 0;
+	
+}
+
+#gallery ul li #top:hover {
+	background-color: #2E2E2E;
+	opacity: 1;
+	text-align: center;
+}
+
+.imgdel {
+	color: #FFFFFF;
+}
+
+/*
+	Others
+	--------------------		
+*/
+
+#img_preview { 
+	margin-top: 5px;
+	display: none;	
+}
+
+.doc_preview { 
+	margin-top: 5px;
+	display: none;	
+}
+
+
+/*
+	Custom Class - Calendar
+	-----------------------		
+*/
+
+.table_calendar tr th {
+	background-color: #424242;
+	color: #FFFFFF;
+	border: 1px #FFFFFF solid;
+}
+
+.table_calendar tr td {
+	background-color: #F2F2F2;
+	border: 1px #FFFFFF solid;
+}
+
+.table_calendar tr td:hover {
+	background-color: #F2F2F2;
+	border: 1px #848484 solid;
+	cursor: pointer;
+}
+
+.table_calendar tr td .item {
+	min-width: 20px;
+	padding: 3px;
+	position: absolute; 
+	text-align: center;
+	background-color: #000000;
+	color: #FFFFFF;
+	font-weight: bold;	 
+	z-index: 1;
+}
+
+.table_calendar tr td .item_red {
+	min-width: 20px;
+	padding: 3px;
+	position: absolute; 
+	text-align: center;
+	background-color: #FF4400;
+	color: #FFFFFF;
+	font-weight: bold;	 
+	z-index: 1;
+}
+
+.table_calendar tr td .weekday {  
+	width: 99%;
+	margin-top: 18px;
+	text-align: center;	
+}
+
+.table_calendar tr td .weekend {  
+	width: 99%;
+	margin-top: 18px;
+	font-weight: bold;
+	text-align: center;	
+}
+
+.table_calendar tr td.empty {
+	background-color: #BDBDBD;
+	border: 1px #FFFFFF solid;
+	cursor: auto;	
+}

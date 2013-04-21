@@ -1,0 +1,145 @@
+/*
+	Back Office - Text CSS
+	
+	Created By: RYC
+	v1.0
+*/
+
+/*
+	Standard
+	--------------------
+*/
+
+body {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+hr {
+	border: 0 solid #ccc;
+ 	border-top-width: 1px;
+ 	clear: both;
+ 	height: 0;
+}
+
+b {
+	font-weight: bold;
+}
+
+/*
+	Headings
+	--------------------
+*/
+
+h1 {
+	font-size: 25px;
+}
+
+h2 {
+	font-size: 23px;
+}
+
+h3 {
+	font-size: 21px;
+}
+
+h4 {
+	font-size: 19px;
+}
+
+h5 {
+	font-size: 17px;
+}
+
+h6 {
+	font-size: 15px;
+}
+
+
+/*
+	Links
+	--------------------		
+*/
+
+a:link, a:visited, a:active {
+	text-decoration: none; 
+}
+
+a:hover { 
+	text-decoration: underline; 
+}
+
+
+/*
+	Custom Class
+	--------------------		
+*/
+
+.text_title_login {
+	font-family: Century Gothic, sans-serif;
+	font-size: 20px;
+}
+
+.text_title_header {
+	font-family: Arial Narrow, sans-serif;
+	font-size: 18px;
+	color: #FFFFFF;
+}
+
+.text_title_header a, .text_title_header a:visited, .text_title_header a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.text_title_content {
+	font-family: Century Gothic, sans-serif;
+	font-size: 20px;
+}
+
+.text_title_content_small {
+	font-family: Century Gothic, sans-serif;
+	font-size: 15px;
+}
+
+.text_error {
+	color: #FF0000;
+}
+
+.text_red {
+	color: #FF0000;
+}
+
+.nav {
+	font-family: Verdana, sans-serif;	
+	font-size: 12px;
+	font-weight: none;
+	color: #FFFFFF;
+	
+}
+
+.subnav {
+	color: #000000;
+}
+
+.text_subnav:link, .text_subnav:visited, .text_subnav:hover {
+	color: #000000;
+	text-decoration: none;
+}
+
+.text_footer {
+	font-family: Arial, sans-serif;
+	font-size: 11px;
+	color: #848484;
+}
+
+
+/*
+	Custom Class - Calendar
+	-----------------------		
+*/
+
+.text_title_calendar {
+	font-family: Century Gothic, sans-serif;
+	font-size: 20px;
+}
