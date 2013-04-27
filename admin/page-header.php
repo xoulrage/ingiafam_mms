@@ -26,6 +26,7 @@
   <script type="text/javascript" src="js/jquery.blockUI.js"></script>
 
   <script type="text/javascript" src="js/date.format.js"></script>
+  <script type="text/javascript" src="js/validation.js"></script>
 
 <?php if ($require_jquery_ui_custom == true) { ?>
   <link rel="stylesheet" type="text/css" href="jquery-ui/css/smoothness/jquery-ui-1.10.2.custom.css" />

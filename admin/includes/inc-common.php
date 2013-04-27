@@ -19,6 +19,7 @@ include('inc-session.php');
 // common functions
 include('inc-formatting.php');
 include('inc-functions.php');
+include('logging.php');
 
 // classes
 include('class/class-admin-common.php');

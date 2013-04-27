@@ -7,7 +7,9 @@
   Created by  : RYC
 */
 
-class common
+include_once('data/class-admin-data-common.php');
+
+class common extends data_common
 {
    
   // constructor
@@ -133,6 +135,101 @@ class common
     return $result_options;
   }
   
+  // get country list for options
+  function getSalutationTitle()
+  {
+    $result_arr = array();
+    
+    // connect to db
+    parent::connect();
+       
+    $result = parent::dataSalutationTitle();
+      
+    // disconnect from db
+    parent::disconnect();
+    
+    if (count($result) > 0)
+    {
+      foreach($result as $row)
+      {
+        $result_arr[$row[0]] = $row[1];
+      }
+    }
+    
+    return $result_arr;
+  }
+  
+  // get country list for options
+  function getCountryState()
+  {
+    $result_arr = array();
+    
+    // connect to db
+    parent::connect();
+       
+    $result = parent::dataCountryState();
+      
+    // disconnect from db
+    parent::disconnect();
+    
+    if (count($result) > 0)
+    {
+      foreach($result as $row)
+      {
+        $result_arr[$row[0]] = $row[1];
+      }
+    }
+    
+    return $result_arr;
+  }
+  
+  function showDateOfBirth($day = null, $month = null, $year = null) {
+
+    $day = (is_null($day) ? 0 : $day);
+    $month = (is_null($month) ? 0 : $month);
+    $year = (is_null($year) ? 0 : $year);
+
+    //Day 
+    $age = '<select name="ddldobDay" id="ddldobDay">';
+    $age .= '<option>Select Day</option>';
+    for ($i = 1; $i <= 31; $i++) {
+      if ($day == $i)
+        $sel = ' selected="selected"';
+      else
+        $sel = '';
+      $age .= '<option value="' . $i . '"' . $sel . '>' . $i . '</option>';
+    }
+    $age .= '</select> ';
+
+    //Month 
+    $age .= '<select name="ddldobMonth" id="ddldobMonth">';
+    $age .= '<option>Select Month</option>';
+    for ($i = 1; $i <= 12; $i++) {
+      $name = date('F', mktime(0, 0, 0, $i));
+      if ($i < 10)
+        $i = '0' . $i;
+      if ($month == $i)
+        $sel = ' selected="selected"';
+      else
+        $sel = '';
+      $age .= '<option value="' . $i . '"' . $sel . '>' . $name . '</option>';
+    }
+    $age .= '</select> ';
+
+    //Year 
+    $age .= '<select name="ddldobYear" id="ddldobYear">';
+    $age .= '<option>Select Year</option>';
+    for ($i = date("o"); $i >= date("o") - 100; $i--) {
+      if ($year == $i)
+        $sel = ' selected="selected"';
+      else
+        $sel = '';
+      $age .= '<option value="' . $i . '"' . $sel . '>' . $i . '</option>';
+    }
+    $age .= '</select><br/>';
+
+    return $age;
+  }
 }
 
 ?>

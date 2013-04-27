@@ -49,7 +49,8 @@ class data_member extends dbhelper
     $sql .= '   mobile,  ';
     $sql .= '   email1,  ';
     $sql .= '   email2,  ';
-    $sql .= '   isagreedtoobitcontrib  ';
+    $sql .= '   isagreedtoobitcontrib,  ';
+    $sql .= '   fkrankid  ';
     $sql .= 'FROM members ';
     $sql .= 'WHERE id = ' . $p_id . ' '; 
     
@@ -98,9 +99,51 @@ class data_member extends dbhelper
   
   // functional methods (CRUD)
   // -------------------------
-  
-  
-  
+  function dataUpdateMemberData($paramdata)
+  {
+    $result_update = false;   
+    
+    $sql  = 'UPDATE members SET ';
+    $sql .= 'fknametitleid = ?, ';
+    $sql .= 'surname = ?, ';
+    $sql .= 'givenname = ?, ';
+    $sql .= 'nric = ?, ';
+    $sql .= 'dateofbirth = ?, ';
+    $sql .= 'gender = ?, ';
+    $sql .= 'unitcode = ?, ';
+    $sql .= 'address1 = ?, ';
+    $sql .= 'address2 = ?, ';
+    $sql .= 'address3 = ?, ';
+    $sql .= 'address4 = ?, ';
+    $sql .= 'postcode = ?, ';
+    $sql .= 'fkcountrystateid = ?, ';
+    $sql .= 'phone = ?, ';
+    $sql .= 'extension = ?, ';
+    $sql .= 'fax = ?, ';
+    $sql .= 'mobile = ?, ';
+    $sql .= 'email1 = ?, ';
+    $sql .= 'email2 = ?, ';
+    $sql .= 'isagreedtoobitcontrib = ? ';
+    $sql .= 'WHERE id = ? '; 
+
+    $paramtype = 'ississsssssiisisssssi';
+    
+    parent::stmtPrepare($sql);    
+
+    parent::stmtSetParamTypeString($paramtype);
+    parent::stmtSetParamData($paramdata);
+    parent::stmtBindParam();
+    
+    parent::stmtExecute();
+    $result = parent::stmtGetTotalAffectedRows();
+    
+    $result_update = '1';
+
+    parent::stmtReset();    
+    parent::stmtClose(); 
+    
+    return $result_update;  
+  }
 }
 
 ?>

@@ -101,7 +101,49 @@ class member extends data_member
   
   // functional methods (CRUD)
   // -------------------------
-  
+  function updateMemberData($arrayList) {
+    $result_update = false;
+    $isValidated = false;
+    
+    // format
+    $p_id = $arrayList['fmemberid'];
+    
+    foreach ($arrayList as $key => $val) {
+      if (!$isValidated)
+        $isValidated = (strlen($val) == 0) ? false : true;
+    } 
+    
+    if ($isValidated)
+    {      
+      // check for existing member
+      $result = $this->getData($p_id);
+      
+      if (count($result) == 1)
+      {
+        // connect to database    
+        parent::connect();
+        
+        // get update result
+        $result = parent::dataUpdateMemberData($arrayList);
+      
+        // disconnect from database
+        parent:: disconnect();
+      
+        if ($result == '1')
+        {
+          $result_update = '1';
+        }         
+      }
+      else {
+        $result_update = 'Error1';
+      }
+    }
+    else {
+      $result_update = 'Error2';
+    }
+    
+    return $result_update;
+  }
 
 }
 
