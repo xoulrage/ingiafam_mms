@@ -17,49 +17,54 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="DatabaseView">
+    <flatten value="false" />
+    <groupTables value="false" />
+    <sortChildren value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="class-admin-data-user.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/class/data/class-admin-data-user.php">
+      <file leaf-file-name="change-password.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/change-password.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="11" selection-start="1125" selection-end="1125" vertical-scroll-proportion="-10.807693">
+            <state line="9" column="35" selection-start="218" selection-end="218" vertical-scroll-proportion="-5.8846154">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="class-admin-user.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/class/class-admin-user.php">
+      <file leaf-file-name="control-first-time-login-process.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/control-first-time-login-process.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="337" column="54" selection-start="6805" selection-end="6805" vertical-scroll-proportion="0.69467455">
+            <state line="26" column="74" selection-start="626" selection-end="626" vertical-scroll-proportion="-17.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/profile.php">
+      <file leaf-file-name="control-login-process.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/control-login-process.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="78" selection-start="1300" selection-end="1300" vertical-scroll-proportion="10.653846">
+            <state line="51" column="37" selection-start="1561" selection-end="1561" vertical-scroll-proportion="-25.653847">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile-editinfo.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/profile-editinfo.php">
+      <file leaf-file-name="control-login-process-first.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/control-login-process-first.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="76" selection-start="477" selection-end="477" vertical-scroll-proportion="51.653847">
+            <state line="27" column="0" selection-start="592" selection-end="592" vertical-scroll-proportion="0.33609468">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="control-profile-updateinfo.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/control-profile-updateinfo.php">
+      <file leaf-file-name="first-time-login.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/first-time-login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="30" selection-start="1001" selection-end="1001" vertical-scroll-proportion="-22.692308">
+            <state line="61" column="10" selection-start="1916" selection-end="2097" vertical-scroll-proportion="-18.307692">
               <folding />
             </state>
           </provider>
@@ -75,9 +80,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/includes/inc-constant.php" />
-        <option value="$PROJECT_DIR$/admin/includes/inc-constant.php" />
-        <option value="$PROJECT_DIR$/admin/control-login-process.php" />
+        <option value="$PROJECT_DIR$/admin/login.php" />
+        <option value="$PROJECT_DIR$/includes/ing-checklogin.php" />
+        <option value="$PROJECT_DIR$/logout.php" />
+        <option value="$PROJECT_DIR$/includes/inc-checklogin.php" />
+        <option value="$PROJECT_DIR$/page-footer.php" />
+        <option value="$PROJECT_DIR$/login.php" />
+        <option value="$PROJECT_DIR$/page-header.php" />
+        <option value="$PROJECT_DIR$/control-login-process.php" />
+        <option value="$PROJECT_DIR$/control-first-time-login-process.php" />
+        <option value="$PROJECT_DIR$/first-time-login.php" />
+        <option value="$PROJECT_DIR$/main.php" />
+        <option value="$PROJECT_DIR$/class/class-member.php" />
+        <option value="$PROJECT_DIR$/class/data/class-data-member.php" />
+        <option value="$PROJECT_DIR$/control-change-password.php" />
+        <option value="$PROJECT_DIR$/change-password.php" />
+        <option value="$PROJECT_DIR$/control-login-process-first.php" />
       </list>
     </option>
   </component>
@@ -114,7 +132,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -147,54 +164,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ingiafam_mms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ingiafam_mms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="class" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ingiafam_mms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ingiafam_mms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="class" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
@@ -210,23 +192,23 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25506938" sideWeight="0.6707589" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26627535" sideWeight="0.6707589" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924107" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -285,141 +267,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/includes/inc-constant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="84" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/includes/inc-common.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="73" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/inc-common.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/inc-constant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="49" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/inc-formatting.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="11" column="0" selection-start="302" selection-end="359" vertical-scroll-proportion="-3.9230769">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/inc-functions.php">
+    <entry file="file://$PROJECT_DIR$/includes/inc-checklogin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="4" column="33" selection-start="88" selection-end="121" vertical-scroll-proportion="-2.6153846">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/inc-session.php">
+    <entry file="file://$PROJECT_DIR$/class/data/dbhelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="83" selection-start="473" selection-end="473" vertical-scroll-proportion="-7.8461537">
+        <state line="232" column="48" selection-start="4691" selection-end="4691" vertical-scroll-proportion="-14.423077">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/login.php">
+    <entry file="file://$PROJECT_DIR$/admin/control-user-edit-pwd.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="46.615383">
-          <folding>
-            <marker date="1366225742000" expanded="true" signature="305:3953" placeholder="..." />
-            <marker date="1366225742000" expanded="true" signature="312:3111" placeholder="..." />
-            <marker date="1366225742000" expanded="true" signature="656:776" placeholder="..." />
-            <marker date="1366225742000" expanded="true" signature="1162:3100" placeholder="..." />
-            <marker date="1366225742000" expanded="true" signature="1196:3087" placeholder="{...}" />
-            <marker date="1366225742000" expanded="true" signature="1201:1244" placeholder="//..." />
-            <marker date="1366225742000" expanded="true" signature="1273:1429" placeholder="{...}" />
-            <marker date="1366225742000" expanded="true" signature="1488:1626" placeholder="{...}" />
-            <marker date="1366225742000" expanded="true" signature="1694:3080" placeholder="{...}" />
-            <marker date="1366225742000" expanded="true" signature="2061:2272" placeholder="{...}" />
-            <marker date="1366225742000" expanded="true" signature="2278:3073" placeholder="{...}" />
-            <marker date="1366225742000" expanded="true" signature="2329:3060" placeholder="{&quot;type&quot;: &quot;POST&quot;...}" />
-            <marker date="1366225742000" expanded="true" signature="2411:2483" placeholder="{...}" />
-            <marker date="1366225742000" expanded="true" signature="2547:3052" placeholder="{...}" />
-            <marker date="1366225742000" expanded="true" signature="2625:2833" placeholder="{...}" />
-            <marker date="1366225742000" expanded="true" signature="2839:3027" placeholder="{...}" />
-            <marker date="1366225742000" expanded="true" signature="3118:3945" placeholder="..." />
-            <marker date="1366225742000" expanded="true" signature="3146:3936" placeholder="..." />
-            <marker date="1366225742000" expanded="true" signature="3165:3927" placeholder="..." />
-            <marker date="1366225742000" expanded="true" signature="3193:3279" placeholder="..." />
-            <marker date="1366225742000" expanded="true" signature="3301:3713" placeholder="..." />
-            <marker date="1366225742000" expanded="true" signature="3338:3700" placeholder="..." />
-            <marker date="1366225742000" expanded="true" signature="3353:3515" placeholder="..." />
-            <marker date="1366225742000" expanded="true" signature="3530:3683" placeholder="..." />
-            <marker date="1366225742000" expanded="true" signature="3744:3916" placeholder="..." />
-            <marker date="1366225742000" expanded="true" signature="3806:3903" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/control-login-process.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="42" selection-start="1397" selection-end="1397" vertical-scroll-proportion="-24.192308">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="3.9230769">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/class/class-admin-settings.php">
+    <entry file="file://$PROJECT_DIR$/admin/profile-editpwd.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="32.346153">
+        <state line="23" column="59" selection-start="252" selection-end="252" vertical-scroll-proportion="28.115385">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/class/data/dbhelper.php">
+    <entry file="file://$PROJECT_DIR$/admin/user-edit-pwd.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="11" selection-start="780" selection-end="780" vertical-scroll-proportion="0.34319526">
+        <state line="26" column="51" selection-start="398" selection-end="398" vertical-scroll-proportion="32.03846">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/class/data/class-admin-data-user.php">
+    <entry file="file://$PROJECT_DIR$/admin/control-profile-updatepwd.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="11" selection-start="1125" selection-end="1125" vertical-scroll-proportion="-10.807693">
+        <state line="30" column="1" selection-start="549" selection-end="619" vertical-scroll-proportion="-4.3846154">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/profile.php">
+    <entry file="file://$PROJECT_DIR$/class/class-member.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="78" selection-start="1300" selection-end="1300" vertical-scroll-proportion="10.653846">
+        <state line="77" column="35" selection-start="1841" selection-end="1841" vertical-scroll-proportion="-15.384615">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/profile-editinfo.php">
+    <entry file="file://$PROJECT_DIR$/class/data/class-data-member.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="76" selection-start="477" selection-end="477" vertical-scroll-proportion="51.653847">
+        <state line="76" column="16" selection-start="1859" selection-end="1859" vertical-scroll-proportion="-3.9615386">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/control-profile-updateinfo.php">
+    <entry file="file://$PROJECT_DIR$/control-change-password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="30" selection-start="1001" selection-end="1001" vertical-scroll-proportion="-22.692308">
+        <state line="5" column="9" selection-start="70" selection-end="70" vertical-scroll-proportion="-3.2692308">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/class/class-admin-user.php">
+    <entry file="file://$PROJECT_DIR$/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="337" column="54" selection-start="6805" selection-end="6805" vertical-scroll-proportion="0.69467455">
+        <state line="14" column="57" selection-start="370" selection-end="370" vertical-scroll-proportion="-9.153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/first-time-login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="10" selection-start="1916" selection-end="2097" vertical-scroll-proportion="-18.307692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/change-password.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="35" selection-start="218" selection-end="218" vertical-scroll-proportion="-5.8846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control-first-time-login-process.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="74" selection-start="626" selection-end="626" vertical-scroll-proportion="-17.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control-login-process.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="37" selection-start="1561" selection-end="1561" vertical-scroll-proportion="-25.653847">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control-login-process-first.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="592" selection-end="592" vertical-scroll-proportion="0.33609468">
           <folding />
         </state>
       </provider>

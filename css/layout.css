@@ -1,0 +1,124 @@
+/*
+	INGiafam MMS - Layout CSS
+	
+	Created By: RYC
+	v1.0
+*/
+
+/*
+	General
+	--------------------
+*/
+
+#outer_wrapper { 
+	width: 1278px; 
+	margin: 0 auto; 
+	background: url(../images/wrapper_tile.png) repeat-y;
+}
+
+#wrapper { 
+	width: 960px; 
+	margin: 0 auto; 
+	background: #fafafa;
+}
+
+/*
+	Header
+	--------------------
+*/
+
+#header { 
+	width: 100%; 
+	border-top: 1px solid #c9e3f1; 
+	background: url(../images/nav_shadow.png) bottom right no-repeat; 
+	position: relative;
+}
+
+#header #logo { 
+	width: 90px; 
+	float: left; 
+}
+
+#header #titlebar { 
+	width: 763px; 
+	margin-left: 107px;
+	margin-top: 40px; 
+	float: left;
+}
+
+/*
+	Content
+	--------------------
+*/
+
+#page_content { 
+	min-height: 320px;
+	padding-bottom: 50px; 
+	margin-bottom: 3px; 
+	border-bottom: 1px solid #d0d0d0;
+}
+
+#page_content #full {
+	margin-top: 15px;
+	width: 100%;
+	min-height: 100px;
+}
+
+#page_content #left {
+	margin-top: 15px;
+	width: 49%;
+	min-height: 100px;
+	float: left;
+}
+
+#page_content #right {
+	margin-top: 15px;	
+	width: 49%;
+	min-height: 100px;
+	float: right;
+}
+
+#content_title {
+	padding: 15px 20px;
+	border-bottom: 1px #CCC solid;
+}
+
+#form {
+	padding: 10px 20px;
+}
+
+#content {
+	padding: 10px 20px;
+}
+
+#content_tab {
+	min-height: 150px;
+}
+
+/*
+	Footer
+	--------------------
+*/
+
+#footer { 
+	padding: 5px 0; 
+	color: #666666; 
+	overflow: hidden 
+}
+
+#footer #copyright { 
+	width: 50%; 
+	float: left; 
+}
+
+#footer #socio { 
+	width: 50%; 
+	float: right; 
+	text-align: right; 
+}
+
+#footer #socio img { 
+	vertical-align: text-top; 
+}
+
+
