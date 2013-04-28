@@ -311,7 +311,7 @@ class data_member extends dbhelper
     $sql .= ' fkmemberstatusid = ?, ';
     $sql .= ' fkmembertypeid = ?, ';
     $sql .= ' fkmembertypestatusid = ?, ';
-    $sql .= ' dateenrolled = ? + INTERVAL 0 DAY, ';
+    $sql .= ' dateenrolled = ?, ';
     $sql .= ' dateapproved = ?, ';
     $sql .= ' datenextrenewal = ?, ';
     $sql .= ' dateconverted = ?, ';
@@ -320,7 +320,7 @@ class data_member extends dbhelper
     $sql .= ' notes = ? ';
     $sql .= 'WHERE id = ? '; 
 
-    $paramtype = 'ississsssssiisisssssssiiiiisssssssi';
+    $paramtype = 'ississssssssissssssissiiiiiissssssi';
     
     parent::stmtPrepare($sql);    
 

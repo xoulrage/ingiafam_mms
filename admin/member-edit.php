@@ -180,7 +180,7 @@ if ($p_member_id) {
       var f_address4 = jQuery.trim($("#f_address4").val());
       var f_postcode = jQuery.trim($("#f_postcode").val());
       var f_countrystateid = $("#ddlCountryState :selected").val();
-      var f_isagreedtoobitcontrib = $('#f_isagreedtoobitcontrib').is(":checked");
+      var f_isagreedtoobitcontrib = ($('#f_isagreedtoobitcontrib').is(":checked")) ? 1 : 0;
       var f_membercode = jQuery.trim($("#f_membercode").val());
       var f_agentcode = jQuery.trim($("#f_agentcode").val());
       var f_agencyid = $("#ddlAgency :selected").val();
@@ -280,6 +280,11 @@ if ($p_member_id) {
 
       if ($("#ddlTitle").prop("selectedIndex") == 0) {
         ErrorMsgList.push("Title is not selected.");
+        iserror = true;
+      }
+      
+      if ($("#ddlGender").prop("selectedIndex") == 0) {
+        ErrorMsgList.push("Gender is not selected.");
         iserror = true;
       }
 
@@ -477,7 +482,15 @@ if ($p_member_id) {
       return false;
 
     });
-
+    
+    $('#ddlRank').change(function() {
+      var val = $(this).val();
+      
+      if (val != '1')
+        $('#f_isagreedtoobitcontrib').attr('disabled', 'disabled');
+      else
+        $('#f_isagreedtoobitcontrib').removeAttr('disabled');
+    });
   });
 </script>
 
@@ -515,78 +528,6 @@ if ($p_member_id) {
           </td>
         </tr>
         <tr>
-          <td width="25%"><b>Agency: <span class="text_red">*</span></b></td>
-          <td><select name="ddlAgency" id="ddlAgency">
-                <option>Please Select</option>
-                <?php foreach ($result_agency as $key => $val) {
-                  $strselected = ($r_fkagencyid === (string) $key) ? 'selected' : '';
-                  ?>
-                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
-                <?php } ?>
-              </select>
-          </td>
-        </tr>
-        <tr>
-          <td width="25%"><b>Rank: <span class="text_red">*</span></b></td>
-          <td><select name="ddlRank" id="ddlRank">
-                <option>Please Select</option>
-                <?php foreach ($result_rank as $key => $val) {
-                  $strselected = ($r_fkrankid === (string) $key) ? 'selected' : '';
-                  ?>
-                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
-                <?php } ?>
-              </select>
-          </td>
-        </tr>
-        <tr>
-          <td width="25%"><b>Region: <span class="text_red">*</span></b></td>
-          <td><select name="ddlRegion" id="ddlRegion">
-                <option>Please Select</option>
-                <?php foreach ($result_region as $key => $val) {
-                  $strselected = ($r_fkregionid === (string) $key) ? 'selected' : '';
-                  ?>
-                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
-                <?php } ?>
-              </select>
-          </td>
-        </tr>
-        <tr>
-          <td width="25%"><b>Member Status: <span class="text_red">*</span></b></td>
-          <td><select name="ddlMemberStatus" id="ddlMemberStatus">
-                <option>Please Select</option>
-                <?php foreach ($result_memberstatus as $key => $val) {
-                  $strselected = ($r_fkmemberstatusid === (string) $key) ? 'selected' : '';
-                  ?>
-                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
-                <?php } ?>
-              </select>
-          </td>
-        </tr>
-        <tr>
-          <td width="25%"><b>Member Type: <span class="text_red">*</span></b></td>
-          <td><select name="ddlMemberType" id="ddlMemberType">
-                <option>Please Select</option>
-                <?php foreach ($result_membertype as $key => $val) {
-                  $strselected = ($r_fkmembertypeid === (string) $key) ? 'selected' : '';
-                  ?>
-                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
-                <?php } ?>
-              </select>
-          </td>
-        </tr>
-        <tr>
-          <td width="25%"><b>Member Type Status: <span class="text_red">*</span></b></td>
-          <td><select name="ddlMemberTypeStatus" id="ddlMemberTypeStatus">
-                <option>Please Select</option>
-                <?php foreach ($result_membertypestatus as $key => $val) {
-                  $strselected = ($r_fkmembertypestatusid === (string) $key) ? 'selected' : '';
-                  ?>
-                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
-                <?php } ?>
-              </select>
-          </td>
-        </tr>
-        <tr>
           <td><b>Surname: <span class="text_red">*</span></b></td>
           <td><input type="text" id="f_surname" size="50" maxlength="20" value="<?php echo $r_surname; ?>"></td>
         </tr>
@@ -603,23 +544,23 @@ if ($p_member_id) {
           <td><?php echo $common->showDateControl('ddldobDay', 'ddldobMonth', 'ddldobYear', $r_dob_day, $r_dob_month, $r_dob_year); ?></td>
         </tr>
         <tr>
-          <td><b>Date of Enrolled: <span class="text_red">*</span></b></td>
+          <td><b>Date of Enrolled:</b></td>
           <td><?php echo $common->showDateControl('ddlEnrolledDay', 'ddlEnrolledMonth', 'ddlEnrolledYear', $r_dateenrolled_day, $r_dateenrolled_month, $r_dateenrolled_year); ?></td>
         </tr>
         <tr>
-          <td><b>Date of Approved: <span class="text_red">*</span></b></td>
+          <td><b>Date of Approved:</b></td>
           <td><?php echo $common->showDateControl('ddlApprovedDay', 'ddlApprovedMonth', 'ddlApprovedYear', $r_dateapproved_day, $r_dateapproved_month, $r_dateapproved_year); ?></td>
         </tr>
         <tr>
-          <td><b>Date of Next Renewal Year: <span class="text_red">*</span></b></td>
+          <td><b>Date of Next Renewal Year:</b></td>
           <td><?php echo $common->showDateControl('ddlNextRenewalDay', 'ddlNextRenewalMonth', 'ddlNextRenewalYear', $r_datenextrenewal_day, $r_datenextrenewal_month, $r_datenextrenewal_year); ?></td>
         </tr>
         <tr>
-          <td><b>Date of Converted Year: <span class="text_red">*</span></b></td>
+          <td><b>Date of Converted Year:</b></td>
           <td><?php echo $common->showDateControl('ddlConvertedDay', 'ddlConvertedMonth', 'ddlConvertedYear', $r_dateconverted_day, $r_dateconverted_month, $r_dateconverted_year); ?></td>
         </tr>
         <tr>
-          <td><b>Date of Terminated Year: <span class="text_red">*</span></b></td>
+          <td><b>Date of Terminated Year:</b></td>
           <td><?php echo $common->showDateControl('ddlTerminatedDay', 'ddlTerminatedMonth', 'ddlTerminatedYear', $r_dateterminated_day, $r_dateterminated_month, $r_dateterminated_year); ?></td>
         </tr>
         <tr>
@@ -684,21 +625,91 @@ if ($p_member_id) {
           <td><input type="text" id="f_mobile" size="80" maxlength="250" value="<?php echo $r_mobile; ?>" onblur="this.value = setPhoneNumberFormat(this.value, 3);"></td>
         </tr>
         <tr>
-          <td><b>Primary Email: <span class="text_red">*</span></b></td>
+          <td><b>Email (Primary): <span class="text_red">*</span></b></td>
           <td><input type="text" id="f_email1" size="80" maxlength="250" value="<?php echo $r_email1; ?>"></td>
         </tr>
         <tr>
-          <td><b>Alternate Email: <span class="text_red">*</span></b></td>
+          <td><b>Email (Secondary): <span class="text_red">*</span></b></td>
           <td><input type="text" id="f_email2" size="80" maxlength="250" value="<?php echo $r_email2; ?>"></td>
         </tr>
-  <?php if (($r_fkrankid == 1) && ($r_isagreedtoobitcontrib == 0)) { ?>
-          <tr>
-            <td width="25%"><b>Agree to Contribution: <span class="text_red">*</span></b></td>
-            <td>
-              <input type="checkbox" id="f_isagreedtoobitcontrib" <?php echo $r_isagreedtoobitcontrib == 0 ? '' : 'checked="checked"' ?>>
-            </td>
-          </tr>
-  <?php } ?>
+        <tr>
+          <td width="25%"><b>Agency: <span class="text_red">*</span></b></td>
+          <td><select name="ddlAgency" id="ddlAgency">
+                <option>Please Select</option>
+                <?php foreach ($result_agency as $key => $val) {
+                  $strselected = ($r_fkagencyid === (string) $key) ? 'selected' : '';
+                  ?>
+                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
+                <?php } ?>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%"><b>Region: <span class="text_red">*</span></b></td>
+          <td><select name="ddlRegion" id="ddlRegion">
+                <option>Please Select</option>
+                <?php foreach ($result_region as $key => $val) {
+                  $strselected = ($r_fkregionid === (string) $key) ? 'selected' : '';
+                  ?>
+                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
+                <?php } ?>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%"><b>Member Status: <span class="text_red">*</span></b></td>
+          <td><select name="ddlMemberStatus" id="ddlMemberStatus">
+                <option>Please Select</option>
+                <?php foreach ($result_memberstatus as $key => $val) {
+                  $strselected = ($r_fkmemberstatusid === (string) $key) ? 'selected' : '';
+                  ?>
+                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
+                <?php } ?>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%"><b>Member Type: <span class="text_red">*</span></b></td>
+          <td><select name="ddlMemberType" id="ddlMemberType">
+                <option>Please Select</option>
+                <?php foreach ($result_membertype as $key => $val) {
+                  $strselected = ($r_fkmembertypeid === (string) $key) ? 'selected' : '';
+                  ?>
+                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
+                <?php } ?>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%"><b>Member Type Status: <span class="text_red">*</span></b></td>
+          <td><select name="ddlMemberTypeStatus" id="ddlMemberTypeStatus">
+                <option>Please Select</option>
+                <?php foreach ($result_membertypestatus as $key => $val) {
+                  $strselected = ($r_fkmembertypestatusid === (string) $key) ? 'selected' : '';
+                  ?>
+                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
+                <?php } ?>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%"><b>Rank: <span class="text_red">*</span></b></td>
+          <td><select name="ddlRank" id="ddlRank">
+                <option>Please Select</option>
+                <?php foreach ($result_rank as $key => $val) {
+                  $strselected = ($r_fkrankid === (string) $key) ? 'selected' : '';
+                  ?>
+                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
+                <?php } ?>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%"><b>Agree to Contribution:</b></td>
+          <td>
+            <input type="checkbox" id="f_isagreedtoobitcontrib" <?php echo (($r_fkrankid == 1) && ($r_isagreedtoobitcontrib == 0)) ? '' : 'disabled="disabled"' ?> <?php echo $r_isagreedtoobitcontrib == 0 ? '' : 'checked="checked"' ?>>
+          </td>
+        </tr>
         <tr>
           <td colspan="2">&nbsp;</td>
         </tr>

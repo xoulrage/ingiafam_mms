@@ -87,6 +87,35 @@ class data_common extends dbhelper
 
     return $result; 
   }
+
+    function  dataRegion(){
+        $sql = 'SELECT id, NAME ';
+        $sql .= 'FROM region ';
+        $sql .= 'WHERE isative = 1 ';
+        $sql .= 'ORDER BY sort ';
+
+        $result_mysqli = parent::query($sql);
+        $result = parent::fetchAllRows($result_mysqli);
+        parent::clear($result_mysqli);
+
+        return $result;
+    }
+
+    function dataCountryState()
+    {
+        $sql = 'SELECT id, name ';
+        $sql .= 'FROM country_state ';
+        $sql .= 'WHERE isactive = 1 ';
+        $sql .= 'ORDER BY sort; ';
+
+        $result_mysqli = parent::query($sql);
+        $result = parent::fetchAllRows($result_mysqli);
+        parent::clear($result_mysqli);
+
+        return $result;
+    }
+
+
   
 }
 

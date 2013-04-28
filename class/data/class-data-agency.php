@@ -20,11 +20,22 @@ class data_agency extends dbhelper
   
   // common methods
   // --------------
-  
+
   
   // data extraction methods
   // -----------------------
+  function dataAgency(){
+      $sql = 'SELECT id, CONCAT(agencycode, \' \', name) ';
+      $sql .= 'FROM agency ';
+      $sql .= 'WHERE isactive = 1 ';
+      $sql .= 'ORDER BY id ';
 
+      $result_mysqli = parent::query($sql);
+      $result = parent::fetchAllRows($result_mysqli);
+      parent::clear($result_mysqli);
+
+      return $result;
+  }
   
   // functional methods (CRUD)
   // -------------------------

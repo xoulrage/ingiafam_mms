@@ -35,7 +35,7 @@ $p_address3 = sanitizeNoTags(trim($_REQUEST['faddress3']));
 $p_address4 = sanitizeNoTags(trim($_REQUEST['faddress4']));
 $p_postcode = sanitizeInt(trim($_REQUEST['fpostcode']));
 $p_countrystateid = sanitizeInt(trim($_REQUEST['fcountrystateid']));
-$p_isagreedtoobitcontrib = sanitizeNoTags(trim($_REQUEST['fisagreedtoobitcontrib']));
+$p_isagreedtoobitcontrib = sanitizeInt(trim($_REQUEST['fisagreedtoobitcontrib']));
 $p_membercode = sanitizeNoTags(trim($_REQUEST['fmembercode']));
 $p_agentcode = sanitizeNoTags(trim($_REQUEST['fagentcode']));
 $p_fkagencyid = sanitizeInt(trim($_REQUEST['ffkagencyid']));
@@ -118,7 +118,7 @@ if ($is_error == false)
         // CHECK IF CHILDKEY IS A MANDATORY FIELD
         if ($boolean)
           // CHECK IF CHILDKEY CONTAINS VALUE ELSE ERROR
-          $is_error = ($childkey) ? false : true;
+          $is_error = (strlen($childkey) != 0) ? false : true;
       }
     }
   }

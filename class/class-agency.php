@@ -24,7 +24,23 @@ class agency extends data_agency
   
   // data extraction methods
   // -----------------------
+  function GetAgency(){
+      $result_arr = array();
 
+      parent::connect();
+      $result = parent::dataAgency();
+      parent::disconnect();
+
+      if (count($result) > 0)
+      {
+          foreach($result as $row)
+          {
+              $result_arr[$row[0]] = $row[1];
+          }
+      }
+
+      return $result_arr;
+  }
   
   // functional methods (CRUD)
   // -------------------------

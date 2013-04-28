@@ -81,7 +81,7 @@ $result_countrystate = $common->getCountryState();
       var f_address4 = jQuery.trim($("#f_address4").val());
       var f_postcode = jQuery.trim($("#f_postcode").val());
       var f_countrystateid = $("#ddlCountryState :selected").val();
-      var f_isagreedtoobitcontrib = $('#f_isagreedtoobitcontrib').is(":checked");
+      var f_isagreedtoobitcontrib = ($('#f_isagreedtoobitcontrib').is(":checked")) ? 1 : 0;
       var f_membercode = jQuery.trim($("#f_membercode").val());
       var f_agentcode = jQuery.trim($("#f_agentcode").val());
       var f_agencyid = $("#ddlAgency :selected").val();
@@ -186,6 +186,11 @@ $result_countrystate = $common->getCountryState();
 
       if ($("#ddlTitle").prop("selectedIndex") == 0) {
         ErrorMsgList.push("Title is not selected.");
+        iserror = true;
+      }
+      
+      if ($("#ddlGender").prop("selectedIndex") == 0) {
+        ErrorMsgList.push("Gender is not selected.");
         iserror = true;
       }
 
@@ -404,6 +409,8 @@ $result_countrystate = $common->getCountryState();
       <div id="content">
         
         Please complete the information below:
+        <br /><br /><br />
+        
         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="table_general">
           <tr>
             <td><b>Member Code: <span class="text_red">*</span></b></td>
@@ -424,70 +431,6 @@ $result_countrystate = $common->getCountryState();
             </td>
           </tr>
           <tr>
-            <td width="25%"><b>Agency: <span class="text_red">*</span></b></td>
-            <td><select name="ddlAgency" id="ddlAgency">
-                  <option>Please Select</option>
-                  <?php foreach ($result_agency as $key => $val) { ?>
-                    <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
-                  <?php } ?>
-                </select>
-            </td>
-          </tr>
-          <tr>
-            <td width="25%"><b>Rank: <span class="text_red">*</span></b></td>
-            <td><select name="ddlRank" id="ddlRank">
-                  <option>Please Select</option>
-                  <?php foreach ($result_rank as $key => $val) { ?>
-                    <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
-                  <?php } ?>
-                </select>
-            </td>
-          </tr>
-          <tr>
-            <td width="25%"><b>Region: <span class="text_red">*</span></b></td>
-            <td><select name="ddlRegion" id="ddlRegion">
-                  <option>Please Select</option>
-                  <?php foreach ($result_region as $key => $val) { ?>
-                    <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
-                  <?php } ?>
-                </select>
-            </td>
-          </tr>
-          <tr>
-            <td width="25%"><b>Member Status: <span class="text_red">*</span></b></td>
-            <td><select name="ddlMemberStatus" id="ddlMemberStatus">
-                  <option>Please Select</option>
-                  <?php foreach ($result_memberstatus as $key => $val) { ?>
-                    <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
-                  <?php } ?>
-                </select>
-            </td>
-          </tr>
-          <tr>
-            <td width="25%"><b>Member Type: <span class="text_red">*</span></b></td>
-            <td><select name="ddlMemberType" id="ddlMemberType">
-                  <option>Please Select</option>
-                  <?php foreach ($result_membertype as $key => $val) { ?>
-                    <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
-                  <?php } ?>
-                </select>
-            </td>
-          </tr>
-          <tr>
-            <td width="25%"><b>Member Type Status: <span class="text_red">*</span></b></td>
-            <td><select name="ddlMemberTypeStatus" id="ddlMemberTypeStatus">
-                  <option>Please Select</option>
-                  <?php foreach ($result_membertypestatus as $key => $val) { ?>
-                    <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
-                  <?php } ?>
-                </select>
-            </td>
-          </tr>
-          <tr>
-            <td><b>Password: <span class="text_red">*</span></b></td>
-            <td><input type="text" id="f_password" size="50" maxlength="20" value=""></td>
-          </tr>
-          <tr>
             <td><b>Surname: <span class="text_red">*</span></b></td>
             <td><input type="text" id="f_surname" size="50" maxlength="20" value=""></td>
           </tr>
@@ -504,23 +447,23 @@ $result_countrystate = $common->getCountryState();
             <td><?php echo $common->showDateControl('ddldobDay', 'ddldobMonth', 'ddldobYear'); ?></td>
           </tr>
           <tr>
-            <td><b>Date of Enrolled: <span class="text_red">*</span></b></td>
+            <td><b>Date of Enrolled:</b></td>
             <td><?php echo $common->showDateControl('ddlEnrolledDay', 'ddlEnrolledMonth', 'ddlEnrolledYear'); ?></td>
           </tr>
           <tr>
-            <td><b>Date of Approved: <span class="text_red">*</span></b></td>
+            <td><b>Date of Approved:</b></td>
             <td><?php echo $common->showDateControl('ddlApprovedDay', 'ddlApprovedMonth', 'ddlApprovedYear'); ?></td>
           </tr>
           <tr>
-            <td><b>Date of Next Renewal Year: <span class="text_red">*</span></b></td>
+            <td><b>Date of Next Renewal Year:</b></td>
             <td><?php echo $common->showDateControl('ddlNextRenewalDay', 'ddlNextRenewalMonth', 'ddlNextRenewalYear'); ?></td>
           </tr>
           <tr>
-            <td><b>Date of Converted Year: <span class="text_red">*</span></b></td>
+            <td><b>Date of Converted Year:</b></td>
             <td><?php echo $common->showDateControl('ddlConvertedDay', 'ddlConvertedMonth', 'ddlConvertedYear'); ?></td>
           </tr>
           <tr>
-            <td><b>Date of Terminated Year: <span class="text_red">*</span></b></td>
+            <td><b>Date of Terminated Year:</b></td>
             <td><?php echo $common->showDateControl('ddlTerminatedDay', 'ddlTerminatedMonth', 'ddlTerminatedYear'); ?></td>
           </tr>
           <tr>
@@ -583,18 +526,82 @@ $result_countrystate = $common->getCountryState();
             <td><input type="text" id="f_mobile" size="80" maxlength="250" value="" onblur="this.value = setPhoneNumberFormat(this.value, 3);"></td>
           </tr>
           <tr>
-            <td><b>Primary Email: <span class="text_red">*</span></b></td>
+            <td><b>Email (Primary): <span class="text_red">*</span></b></td>
             <td><input type="text" id="f_email1" size="80" maxlength="250" value=""></td>
           </tr>
           <tr>
-            <td><b>Alternate Email: <span class="text_red">*</span></b></td>
+            <td><b>Email (Secondary): <span class="text_red">*</span></b></td>
             <td><input type="text" id="f_email2" size="80" maxlength="250" value=""></td>
+          </tr>
+          <tr>
+            <td width="25%"><b>Agency: <span class="text_red">*</span></b></td>
+            <td><select name="ddlAgency" id="ddlAgency">
+                  <option>Please Select</option>
+                  <?php foreach ($result_agency as $key => $val) { ?>
+                    <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
+                  <?php } ?>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td width="25%"><b>Region: <span class="text_red">*</span></b></td>
+            <td><select name="ddlRegion" id="ddlRegion">
+                  <option>Please Select</option>
+                  <?php foreach ($result_region as $key => $val) { ?>
+                    <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
+                  <?php } ?>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td width="25%"><b>Member Status: <span class="text_red">*</span></b></td>
+            <td><select name="ddlMemberStatus" id="ddlMemberStatus">
+                  <option>Please Select</option>
+                  <?php foreach ($result_memberstatus as $key => $val) { ?>
+                    <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
+                  <?php } ?>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td width="25%"><b>Member Type: <span class="text_red">*</span></b></td>
+            <td><select name="ddlMemberType" id="ddlMemberType">
+                  <option>Please Select</option>
+                  <?php foreach ($result_membertype as $key => $val) { ?>
+                    <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
+                  <?php } ?>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td width="25%"><b>Member Type Status: <span class="text_red">*</span></b></td>
+            <td><select name="ddlMemberTypeStatus" id="ddlMemberTypeStatus">
+                  <option>Please Select</option>
+                  <?php foreach ($result_membertypestatus as $key => $val) { ?>
+                    <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
+                  <?php } ?>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td width="25%"><b>Rank: <span class="text_red">*</span></b></td>
+            <td><select name="ddlRank" id="ddlRank">
+                  <option>Please Select</option>
+                  <?php foreach ($result_rank as $key => $val) { ?>
+                    <option value="<?php echo $key; ?>"><?php echo $val; ?></option>
+                  <?php } ?>
+                </select>
+            </td>
           </tr>
           <tr>
             <td width="25%"><b>Agree to Contribution: <span class="text_red">*</span></b></td>
             <td>
               <input type="checkbox" id="f_isagreedtoobitcontrib">
             </td>
+          </tr>
+          <tr>
+            <td><b>Password: <span class="text_red">*</span></b></td>
+            <td><input type="text" id="f_password" size="50" maxlength="20" value=""></td>
           </tr>
           <tr>
             <td colspan="2">&nbsp;</td>

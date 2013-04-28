@@ -29,17 +29,17 @@ class member extends data_member
     // generate salt
     function generateSalt()
     {
-    $var_salt = substr(md5(uniqid(rand(), true)), 0, SALT_LENGTH);
+        $var_salt = substr(md5(uniqid(rand(), true)), 0, SALT_LENGTH);
 
-    return $var_salt;
+        return $var_salt;
     }
 
     // generate hash
     function generateHash($var_text, $var_salt = null)
     {
-    $var_hash = hash(HASH_ALGORITHM, $var_salt . $var_text);
+        $var_hash = hash(HASH_ALGORITHM, $var_salt . $var_text);
 
-    return $var_hash;
+        return $var_hash;
     }
   
     // data extraction methods
@@ -99,19 +99,23 @@ class member extends data_member
     // functional methods (CRUD)
     // -------------------------
     function updateFirstLogin($p_id, $p_pwd){
-        // format
-        $p_id = sanitizeInt($p_id);
-        $p_pwd  = strtolower($p_pwd);
+        $result = false;
 
-        // generate new salt
-        $salt = $this->generateSalt();
+        if (($p_id) && ($p_pwd)){
+            // format
+            $p_id = sanitizeInt($p_id);
+            $p_pwd  = strtolower($p_pwd);
 
-        // generate new hash pwd
-        $hash_pwd = $this->generateHash($p_pwd, $salt);
+            // generate new salt
+            $salt = $this->generateSalt();
 
-        parent::connect();
-        $result = parent::dataUpdateFirstLogin($p_id, $hash_pwd, $salt);
-        parent:: disconnect();
+            // generate new hash pwd
+            $hash_pwd = $this->generateHash($p_pwd, $salt);
+
+            parent::connect();
+            $result = parent::dataUpdateFirstLogin($p_id, $hash_pwd, $salt);
+            parent:: disconnect();
+        }
 
         return $result;
     }
@@ -155,6 +159,62 @@ class member extends data_member
             }
         }
         return $result_update;
+    }
+
+    function updateMemberData($p_agentCode, $p_nric, $p_surname, $p_givenname, $p_dateofbirth, $p_gender, $p_fkregionid, $p_fkagencyid,
+                              $p_address1, $p_address2, $p_address3, $p_address4, $p_fkcountrystateid, $p_postcode, $p_phone, $p_extension,
+                              $p_fax, $p_mobile, $p_email, $p_email2, $p_id){
+        $isDuplicateAgentCode = false;
+        $p_id = sanitizeInt($p_id);
+
+        if(($p_agentCode) && ($p_nric) && ($p_surname) && ($p_givenname) && ($p_dateofbirth) && ($p_gender) && ($p_fkregionid) && ($p_fkagencyid) &&
+         ($p_fkcountrystateid) && ($p_postcode) && ($p_phone) && ($p_mobile) && ($p_email) && ($p_email2) && ($p_id)){
+
+            $p_nric = addSlashesFormat($p_nric);
+            $p_surname = addSlashesFormat($p_surname);
+            $p_givenname = addSlashesFormat($p_givenname);
+            $p_address1 = addSlashesFormat($p_address1);
+            $p_address2 = addSlashesFormat($p_address2);
+            $p_address3 = addSlashesFormat($p_address3);
+            $p_address4 = addSlashesFormat($p_address4);
+            $p_postcode = addSlashesFormat($p_postcode);
+            $p_phone = addSlashesFormat($p_phone);
+            $p_extension = addSlashesFormat($p_extension);
+            $p_fax = addSlashesFormat($p_fax);
+            $p_mobile = addSlashesFormat($p_mobile);
+            $p_email = addSlashesFormat($p_email);
+            $p_email2 = addSlashesFormat($p_email2);
+
+            $result_data = $this->getDataByUsername($p_agentCode);
+
+            if (count($result_data) > 0)
+            {
+                foreach($result_data as $row_data)
+                {
+                    $r_id = $row_data[0];
+                    if ($r_id != $p_id)
+                        $isDuplicateAgentCode = true;
+                        break;
+                }
+            }
+
+            if ($isDuplicateAgentCode)
+                return 'The Agent Code already existed!';
+
+            parent::connect();
+            $result = parent::dataUpdateMemberData($p_agentCode, $p_nric, $p_surname, $p_givenname, $p_dateofbirth, $p_gender, $p_fkregionid, $p_fkagencyid,
+                $p_address1, $p_address2, $p_address3, $p_address4, $p_fkcountrystateid, $p_postcode, $p_phone, $p_extension,
+                $p_fax, $p_mobile, $p_email, $p_email2, $p_id);
+            parent::disconnect();
+
+            if ($result == '1')
+                return '1';
+            elseif ($result == '0')
+                return 'No Changes Made';
+        }else
+            return 'Missing Parameters.';
+
+        return 'Unknown Error.';
     }
 
 }
