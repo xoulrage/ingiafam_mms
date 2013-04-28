@@ -77,4 +77,16 @@ function removeSlashesFormat($p_var)
   return $p_var;
 }
 
+function formatDateToMySQLDate($date) {
+  if (empty($date))
+    $date = '';
+  else {
+    //$date = ($month . '/' . $day . '/' . $year);
+    $date = strtotime($date);
+    $date = date("Y-m-d H:i:s", $date);
+  }
+  
+  return $date;
+}
+
 ?>

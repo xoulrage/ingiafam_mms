@@ -50,4 +50,18 @@ function setPhoneNumberFormat(str, pos) {
 function validateEmail(email) {
   var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
   return emailReg.test(email);
-}  
+}
+
+function formatDate(day, month, year, format){
+  var date = "";
+  
+  if ((day == 0) || (month == 0) || (year == 0))
+    date = "";
+  else
+  {
+    if (format == "mdy")
+      date = (month + '/' + day + '/' + year);
+  }
+
+  return date;
+}

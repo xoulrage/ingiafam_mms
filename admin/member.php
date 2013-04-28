@@ -121,7 +121,47 @@ if ((!($is_available)) && ($result_total > 0))
     // event - click on confirm delete button
     $("#btn_confirm").click(function(){
 
-
+//      var rec_id = $("#f_delete_id").val();
+//      var objContent = $("#content_left");
+//
+//      if (rec_id != '')
+//      {      
+//        // initiale block ui
+//        block(objContent, $("#blockloading"));
+//
+//        $.ajax({
+//          type: "POST",
+//          url:  "control-member-delete.php",
+//          data: ({
+//            action : 'deletemember', 
+//            rid : rec_id
+//          }),        
+//          cache: false,
+//          success: function(data){
+//        
+//            data = jQuery.trim(data);
+//
+//            if (data == 'true') {
+//
+//              // initiate block ui
+//              block(objContent, $("#blocksuccess"));
+//
+//              // delay redirect by 1 second
+//              setTimeout(function() {
+//                window.location.href= '<?php echo $_SERVER['PHP_SELF'] . '?pg=' . $p_page; ?>';
+//              }, 1000);
+//                  
+//            } else {
+//
+//              // unblock ui
+//              unblock(objContent);
+//
+//            }
+//              
+//          }
+//        });
+//
+//      }
 
     });
 
@@ -165,9 +205,10 @@ if ((!($is_available)) && ($result_total > 0))
             <th>GIVEN NAME</th>
             <th align="center">AGENT CODE</th>
             <th align="center">DATE CREATED</th>
-            <th align="center">IS ACTIVE</th>
+            <th align="center">ACCOUNT STATUS</th>
             <th width="5%" align="center">EDIT</th>
-            <th width="5%" align="center">DELETE</th>
+            <th width="5%" align="center">CHANGE PASSWORD</th>
+<!--            <th width="5%" align="center">DELETE</th>-->
           </tr>
 <?php
 // ouput list
@@ -186,10 +227,19 @@ if ($is_available == true)
     $r_datecreated = $row[4];
     $r_isactive = $row[5];
 
+    $url_publish = 'control-member-publish.php?action=updatepublish&rid=' . $r_id . '&pg=' . $p_page;
     $url_edit = 'member-edit.php?rid=' . $r_id . '&pg=' . $p_page;
     $edit = '<a href="' . $url_edit . '"><img src="images/icon-edit.png" title="Edit Profile"></a>';
-
+    $url_edit_pwd = 'member-edit-pwd.php?rid=' . $r_id . '&pg=' . $p_page;
+    $edit_pwd = '<a href="' . $url_edit_pwd . '"><img src="images/icon-edit.png" title="Change Password"></a>';   
     $delete = '<a href="#" class="lnk_delete" rel="' . $r_id . '"><img src="images/icon-delete.png" title="Delete"></a>';
+
+    if ($r_isactive == 1)
+    {
+      $publish = '<a href="' . $url_publish . '"><img src="images/icon-publish.png" title="Click to lock user account"></a>';
+    } else {
+      $publish = '<a href="' . $url_publish . '"><img src="images/icon-unpublish.png" title="Click to unlock user account"></a>';
+    }
 
     // output
     echo '<tr>' . "\n";
@@ -198,9 +248,10 @@ if ($is_available == true)
     echo '<td>' . $r_givenname . '</td>' . "\n";
     echo '<td align="center">' . $r_agentcode . '</td>' . "\n";
     echo '<td align="center">' . $r_datecreated . '</td>' . "\n";
-    echo '<td align="center">' . $r_isactive . '</td>' . "\n";
+    echo '<td align="center">' . $publish . '</td>' . "\n";
     echo '<td align="center">' . $edit . '</td>' . "\n";
-    echo '<td align="center">' . $delete . '</td>' . "\n";
+    echo '<td align="center">' . $edit_pwd . '</td>' . "\n";
+    //echo '<td align="center">' . $delete . '</td>' . "\n";
     echo '</tr>' . "\n";
 
     // increment
@@ -213,9 +264,10 @@ if ($is_available == true)
     $r_agentcode = '';
     $r_datecreated = '';
     $r_isactive = '';
-
+    
     $edit = '';
     $url_edit = '';
+    $url_edit_pwd = '';
     $delete = '';
   }
 }

@@ -3,21 +3,19 @@
 // include files
 include('includes/inc-common.php');
 
+
 // settings
 $response = 'Unknown Error: Please contact the system administrator.';
-$action = 'editmember';
+$action = 'addmember';
 $is_error = false;
+
 
 // instantiate
 $member = new member();
 
-//$log = new Logging();
-//$log->lwrite($key .' / '. $val);
-//$log->lclose();
 
 // fetch parameters
 $p_action = sanitizeNoTags(trim($_REQUEST['action']));
-$p_member_id = sanitizeInt(trim($_REQUEST['rid']));
 $p_surname = sanitizeNoTags(trim($_REQUEST['fsurname']));
 $p_givenname = sanitizeNoTags(trim($_REQUEST['fgivenname']));
 $p_title = sanitizeNoTags(trim($_REQUEST['ftitle']));
@@ -52,6 +50,7 @@ $p_datenextrenewal = sanitizeNoTags(trim($_REQUEST['fdatenextrenewal']));
 $p_dateconverted = sanitizeNoTags(trim($_REQUEST['fdateconverted']));
 $p_dateterminated = sanitizeNoTags(trim($_REQUEST['fdateterminated']));
 $p_notes = sanitizeNoTags(trim($_REQUEST['fnotes']));
+$p_password = sanitizeNoTags(trim($_REQUEST['password']));
 
 $p_dob = formatDateToMySQLDate($p_dob);
 $p_dateenrolled = formatDateToMySQLDate($p_dateenrolled);
@@ -94,7 +93,7 @@ $arrayList['fdatenextrenewal'][$p_datenextrenewal] = false;
 $arrayList['fdateconverted'][$p_dateconverted] = false;
 $arrayList['fdateterminated'][$p_dateterminated] = false;
 $arrayList['fnotes'][$p_notes] = false;
-$arrayList['fmemberid'][$p_member_id] = true;
+
 
 // set default
 
@@ -129,29 +128,27 @@ if ($is_error == false)
 }
 
 
-
-
 // update process
 // **************
 if ($is_error == false)
-{
-  $result_edit = $member->updateMemberData($arrayList);
+{  
+  $result = $member->add($arrayList, $p_password);
   
-  if ($result_edit == '1'){
-    $response = 'true';
-  } 
-  else if ($result_edit == "DupAgentCode"){    
-    $response = 'Error: Duplicate Agent Code. ';    
-  }
-  else if ($result_edit == "DupMemberCode"){    
-    $response = 'Error: Duplicate Member Code. ';    
-  }
-  else
+  if ($result == 'DUPLICATE')
   {
-    $response = 'Error: Unable to update record. Please contact the system administrator. ';
+    // error - duplicate membername
+    $response = 'There is an existing account with the same agent code or member code in the system. Please verify.';
+    
+  } elseif ((is_numeric($result)) && ($result > 0)) {
+    
+    $response = 'true';
+    
+  } else {
+    $response = 'Error: Unable to add new record. Please contact the system administrator. ';
+        
   }
+  
 }
-
 
 
 

@@ -183,27 +183,27 @@ class common extends data_common
     return $result_arr;
   }
   
-  function showDateOfBirth($day = null, $month = null, $year = null) {
+  function showDateControl($dayCtrlID, $monthCtrlID, $yearCtrlID, $day = null, $month = null, $year = null) {
 
     $day = (is_null($day) ? 0 : $day);
     $month = (is_null($month) ? 0 : $month);
     $year = (is_null($year) ? 0 : $year);
 
     //Day 
-    $age = '<select name="ddldobDay" id="ddldobDay">';
-    $age .= '<option>Select Day</option>';
+    $date = '<select name="'. $dayCtrlID .'" id="'. $dayCtrlID .'">';
+    $date .= '<option value="0">Select Day</option>';
     for ($i = 1; $i <= 31; $i++) {
       if ($day == $i)
         $sel = ' selected="selected"';
       else
         $sel = '';
-      $age .= '<option value="' . $i . '"' . $sel . '>' . $i . '</option>';
+      $date .= '<option value="' . $i . '"' . $sel . '>' . $i . '</option>';
     }
-    $age .= '</select> ';
+    $date .= '</select> ';
 
     //Month 
-    $age .= '<select name="ddldobMonth" id="ddldobMonth">';
-    $age .= '<option>Select Month</option>';
+    $date .= '<select name="'. $monthCtrlID .'" id="'. $monthCtrlID .'">';
+    $date .= '<option value="0">Select Month</option>';
     for ($i = 1; $i <= 12; $i++) {
       $name = date('F', mktime(0, 0, 0, $i));
       if ($i < 10)
@@ -212,23 +212,23 @@ class common extends data_common
         $sel = ' selected="selected"';
       else
         $sel = '';
-      $age .= '<option value="' . $i . '"' . $sel . '>' . $name . '</option>';
+      $date .= '<option value="' . $i . '"' . $sel . '>' . $name . '</option>';
     }
-    $age .= '</select> ';
+    $date .= '</select> ';
 
     //Year 
-    $age .= '<select name="ddldobYear" id="ddldobYear">';
-    $age .= '<option>Select Year</option>';
+    $date .= '<select name="'. $yearCtrlID .'" id="'. $yearCtrlID .'">';
+    $date .= '<option value="0">Select Year</option>';
     for ($i = date("o"); $i >= date("o") - 100; $i--) {
       if ($year == $i)
         $sel = ' selected="selected"';
       else
         $sel = '';
-      $age .= '<option value="' . $i . '"' . $sel . '>' . $i . '</option>';
+      $date .= '<option value="' . $i . '"' . $sel . '>' . $i . '</option>';
     }
-    $age .= '</select><br/>';
+    $date .= '</select><br/>';
 
-    return $age;
+    return $date;
   }
 }
 

@@ -21,8 +21,8 @@ class dbhelper
   // development
 	private $host    = 'localhost';
 	private $db_name = 'ingiafam_mms';
-	private $db_user = 'ingiafam';
-	private $db_pwd  = 'password';	
+	private $db_user = 'user';
+	private $db_pwd  = 'password';
 
 
   protected $objlink;

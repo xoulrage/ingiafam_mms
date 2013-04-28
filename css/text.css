@@ -1,0 +1,64 @@
+/*
+	INGiafam MMS - Text CSS
+	
+	Created By: RYC
+	v1.0
+*/
+
+/*
+	Standard
+	--------------------
+*/
+
+body {
+	font-family: Verdana, Arial, Sans-serif, Tahoma;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+p {
+	font-size: 12px;
+	line-height: 16px;
+}
+
+small { 
+	font-size: 9px; 
+}
+
+a, a:visited {
+	color: #000000;
+}
+
+/*
+	Headings
+	--------------------
+*/
+
+h1 {
+	font-size: 25px;
+}
+
+/*
+	Custom Class
+	--------------------		
+*/
+
+.header_title {
+	font-family: Georgia, Times New Roman;
+	font-size: 30px;
+	color: #2454A6;
+}
+
+.content_title {
+	font-family: Georgia, Times New Roman;
+	font-size: 20px;
+	color: #2454A6;
+}
+
+.text_red {
+	color: #FF0000;
+}
+
+.text_blue {
+	color: #2454A6;
+}

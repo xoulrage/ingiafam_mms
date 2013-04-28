@@ -28,9 +28,16 @@ if ($p_member_id) {
   $result = $member->getData($p_member_id);
 
   if (count($result) > 0) {
+    $result_agency = $member->getAgency();
+    $result_rank = $member->getRank();
+    $result_region = $member->getRegion();
+    $result_memberstatus = $member->getMemberStatus();
+    $result_membertype = $member->getMemberType();
+    $result_membertypestatus = $member->getMemberTypeStatus();
+    
     $result_title = $common->getSalutationTitle();
     $result_countrystate = $common->getCountryState();
-
+    
     $is_available = true;
 
     foreach ($result as $row) {
@@ -54,13 +61,57 @@ if ($p_member_id) {
       $r_email1 = $row[17];
       $r_email2 = $row[18];
       $r_isagreedtoobitcontrib = $row[19];
-      $r_fkrankid = $row[20];
+      $r_fkrankid = $row[20];      
+      $r_membercode = $row[21];
+      $r_agentcode = $row[22];
+      $r_fkagencyid = $row[23];
+      $r_fkregionid = $row[24];
+      $r_fkmemberstatusid = $row[25];
+      $r_fkmembertypeid = $row[26];
+      $r_fkmembertypestatusid = $row[27];
+      $r_dateenrolled = $row[28];
+      $r_dateapproved = $row[29];
+      $r_datenextrenewal = $row[30];
+      $r_dateconverted = $row[31];
+      $r_dateterminated = $row[32];
+      $r_datelastadminedit = $row[33];
+      $r_notes = $row[34];
 
       $dob_array = explode("-", $r_dateofbirth);
       $r_dob_day = $dob_array[2];
       $r_dob_month = $dob_array[1];
       $r_dob_year = $dob_array[0];
-
+      
+      $dateenrolled_array = explode("-", $r_dateenrolled);
+      $r_dateenrolled_day = $dateenrolled_array[2];
+      $r_dateenrolled_month = $dateenrolled_array[1];
+      $r_dateenrolled_year = $dateenrolled_array[0];
+      
+      $dateapproved_array = explode("-", $r_dateapproved);
+      $r_dateapproved_day = $dateapproved_array[2];
+      $r_dateapproved_month = $dateapproved_array[1];
+      $r_dateapproved_year = $dateapproved_array[0];
+      
+      $datenextrenewal_array = explode("-", $r_datenextrenewal);
+      $r_datenextrenewal_day = $datenextrenewal_array[2];
+      $r_datenextrenewal_month = $datenextrenewal_array[1];
+      $r_datenextrenewal_year = $datenextrenewal_array[0];
+      
+      $dateconverted_array = explode("-", $r_dateconverted);
+      $r_dateconverted_day = $dateconverted_array[2];
+      $r_dateconverted_month = $dateconverted_array[1];
+      $r_dateconverted_year = $dateconverted_array[0];
+      
+      $dateterminated_array = explode("-", $r_dateterminated);
+      $r_dateterminated_day = $dateterminated_array[2];
+      $r_dateterminated_month = $dateterminated_array[1];
+      $r_dateterminated_year = $dateterminated_array[0];
+      
+      $datelastadminedit_array = explode("-", $r_datelastadminedit);
+      $r_datelastadminedit_day = $datelastadminedit_array[2];
+      $r_datelastadminedit_month = $datelastadminedit_array[1];
+      $r_datelastadminedit_year = $datelastadminedit_array[0];
+      
       // format
       $r_surname = removeSlashesFormat($r_surname);
       $r_givenname = removeSlashesFormat($r_givenname);
@@ -130,6 +181,31 @@ if ($p_member_id) {
       var f_postcode = jQuery.trim($("#f_postcode").val());
       var f_countrystateid = $("#ddlCountryState :selected").val();
       var f_isagreedtoobitcontrib = $('#f_isagreedtoobitcontrib').is(":checked");
+      var f_membercode = jQuery.trim($("#f_membercode").val());
+      var f_agentcode = jQuery.trim($("#f_agentcode").val());
+      var f_agencyid = $("#ddlAgency :selected").val();
+      var f_rankid = $("#ddlRank :selected").val();
+      var f_regionid = $("#ddlRegion :selected").val();
+      var f_memberstatusid = $("#ddlMemberStatus :selected").val();
+      var f_membertypeid = $("#ddlMemberType :selected").val();
+      var f_membertypestatusid = $("#ddlMemberTypeStatus :selected").val();
+      var f_dateenrolled_day = $("#ddlEnrolledDay :selected").val();
+      var f_dateenrolled_month = $("#ddlEnrolledMonth :selected").val();
+      var f_dateenrolled_year = $("#ddlEnrolledYear :selected").val();
+      var f_dateapproved_day = $("#ddlApprovedDay :selected").val();
+      var f_dateapproved_month = $("#ddlApprovedMonth :selected").val();
+      var f_dateapproved_year = $("#ddlApprovedYear :selected").val();
+      var f_datenextrenewal_day = $("#ddlNextRenewalDay :selected").val();
+      var f_datenextrenewal_month = $("#ddlNextRenewalMonth :selected").val();
+      var f_datenextrenewal_year = $("#ddlNextRenewalYear :selected").val();
+      var f_dateconverted_day = $("#ddlConvertedDay :selected").val();
+      var f_dateconverted_month = $("#ddlConvertedMonth :selected").val();
+      var f_dateconverted_year = $("#ddlConvertedYear :selected").val();
+      var f_dateterminated_day = $("#ddlTerminatedDay :selected").val();
+      var f_dateterminated_month = $("#ddlTerminatedMonth :selected").val();
+      var f_dateterminated_year = $("#ddlTerminatedYear :selected").val();
+      var f_notes = jQuery.trim($("#f_notes").val());
+     
 
       // Initialize Array to hold Error Messages
       var ErrorMsgList = new Array();
@@ -191,6 +267,16 @@ if ($p_member_id) {
         ErrorMsgList.push("Postcode is required.");
         iserror = true;
       }
+      
+      if (isStringEmpty(f_membercode)) {
+        ErrorMsgList.push("Member code is empty.");
+        iserror = true;
+      }
+      
+      if (isStringEmpty(f_agentcode)) {
+        ErrorMsgList.push("Agent code is empty.");
+        iserror = true;
+      }
 
       if ($("#ddlTitle").prop("selectedIndex") == 0) {
         ErrorMsgList.push("Title is not selected.");
@@ -206,6 +292,36 @@ if ($p_member_id) {
 
       if ($("#ddlCountryState").prop("selectedIndex") == 0) {
         ErrorMsgList.push("Country state is not selected.");
+        iserror = true;
+      }
+      
+      if ($("#ddlAgency").prop("selectedIndex") == 0) {
+        ErrorMsgList.push("Agency is not selected.");
+        iserror = true;
+      }
+      
+      if ($("#ddlRank").prop("selectedIndex") == 0) {
+        ErrorMsgList.push("Rank is not selected.");
+        iserror = true;
+      }
+      
+      if ($("#ddlRegion").prop("selectedIndex") == 0) {
+        ErrorMsgList.push("Region is not selected.");
+        iserror = true;
+      }
+      
+      if ($("#ddlMemberStatus").prop("selectedIndex") == 0) {
+        ErrorMsgList.push("Member status is not selected.");
+        iserror = true;
+      }
+      
+      if ($("#ddlMemberType").prop("selectedIndex") == 0) {
+        ErrorMsgList.push("Member type is not selected.");
+        iserror = true;
+      }
+      
+      if ($("#ddlMemberTypeStatus").prop("selectedIndex") == 0) {
+        ErrorMsgList.push("Member type status is not selected.");
         iserror = true;
       }
 
@@ -267,6 +383,14 @@ if ($p_member_id) {
         // unblock ui
         unblock(objContent);
       }
+      else {
+        var f_dob = formatDate(f_dob_day, f_dob_month, f_dob_year, 'mdy');
+        var f_dateenrolled = formatDate(f_dateenrolled_day, f_dateenrolled_month, f_dateenrolled_year, 'mdy');
+        var f_dateapproved = formatDate(f_dateapproved_day, f_dateapproved_month, f_dateapproved_year, 'mdy');
+        var f_datenextrenewal = formatDate(f_datenextrenewal_day, f_datenextrenewal_month, f_datenextrenewal_year, 'mdy');
+        var f_dateconverted = formatDate(f_dateconverted_day, f_dateconverted_month, f_dateconverted_year, 'mdy');
+        var f_dateterminated = formatDate(f_dateterminated_day, f_dateterminated_month, f_dateterminated_year, 'mdy');
+      }
 
       // PROCEED AJAX IF NO ERROR
       if (iserror != true) {
@@ -288,9 +412,7 @@ if ($p_member_id) {
             fmobile: f_mobile,
             femail1: f_email1,
             femail2: f_email2,
-            fdobday: f_dob_day,
-            fdobmonth: f_dob_month,
-            fdobyear: f_dob_year,
+            fdob: f_dob,
             fgender: f_gender,
             funitcode: f_unitcode,
             faddress1: f_address1,
@@ -299,7 +421,21 @@ if ($p_member_id) {
             faddress4: f_address4,
             fpostcode: f_postcode,
             fcountrystateid: f_countrystateid,
-            fisagreedtoobitcontrib: f_isagreedtoobitcontrib
+            fisagreedtoobitcontrib: f_isagreedtoobitcontrib,
+            fmembercode : f_membercode,
+            fagentcode : f_agentcode,
+            ffkagencyid : f_agencyid,
+            ffkrankid : f_rankid,
+            ffkregionid : f_regionid,
+            ffkmemberstatusid : f_memberstatusid,
+            ffkmembertypeid : f_membertypeid,
+            ffkmembertypestatusid : f_membertypestatusid,
+            fdateenrolled : f_dateenrolled,
+            fdateapproved : f_dateapproved,
+            fdatenextrenewal : f_datenextrenewal,
+            fdateconverted : f_dateconverted,
+            fdateterminated : f_dateterminated,
+            fnotes: f_notes
           }),
           cache: false,
           success: function(data) {
@@ -313,7 +449,7 @@ if ($p_member_id) {
 
               // delay redirect by 1 second
               setTimeout(function() {
-                window.location.href = 'member.php?pg=<?php $p_page; ?>';
+                window.location.href = 'member.php?pg=<?php echo $p_page; ?>';
               }, 1000);
 
             } else {
@@ -337,7 +473,7 @@ if ($p_member_id) {
       // initiate block ui
       block($("#content_left"), $("#blockcancel"));
 
-      window.location.href = 'user.php?pg=<?php echo $p_page; ?>';
+      window.location.href = 'member.php?pg=<?php echo $p_page; ?>';
       return false;
 
     });
@@ -359,15 +495,95 @@ if ($p_member_id) {
 
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="table_general">
         <tr>
+          <td><b>Member Code: <span class="text_red">*</span></b></td>
+          <td><input type="text" id="f_membercode" size="50" maxlength="20" value="<?php echo $r_membercode; ?>"></td>
+        </tr>
+        <tr>
+          <td><b>Agent Code: <span class="text_red">*</span></b></td>
+          <td><input type="text" id="f_agentcode" size="80" maxlength="250" value="<?php echo $r_agentcode; ?>"></td>
+        </tr>
+        <tr>
           <td width="25%"><b>Title: <span class="text_red">*</span></b></td>
           <td><select name="ddlTitle" id="ddlTitle">
-              <option>Please Select</option>
-  <?php foreach ($result_title as $key => $val) {
-    $strselected = ($r_nametitleid === (string) $key) ? 'selected' : '';
-    ?>
-                <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
-  <?php } ?>
-            </select>
+                <option>Please Select</option>
+                <?php foreach ($result_title as $key => $val) {
+                  $strselected = ($r_nametitleid === (string) $key) ? 'selected' : '';
+                  ?>
+                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
+                <?php } ?>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%"><b>Agency: <span class="text_red">*</span></b></td>
+          <td><select name="ddlAgency" id="ddlAgency">
+                <option>Please Select</option>
+                <?php foreach ($result_agency as $key => $val) {
+                  $strselected = ($r_fkagencyid === (string) $key) ? 'selected' : '';
+                  ?>
+                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
+                <?php } ?>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%"><b>Rank: <span class="text_red">*</span></b></td>
+          <td><select name="ddlRank" id="ddlRank">
+                <option>Please Select</option>
+                <?php foreach ($result_rank as $key => $val) {
+                  $strselected = ($r_fkrankid === (string) $key) ? 'selected' : '';
+                  ?>
+                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
+                <?php } ?>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%"><b>Region: <span class="text_red">*</span></b></td>
+          <td><select name="ddlRegion" id="ddlRegion">
+                <option>Please Select</option>
+                <?php foreach ($result_region as $key => $val) {
+                  $strselected = ($r_fkregionid === (string) $key) ? 'selected' : '';
+                  ?>
+                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
+                <?php } ?>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%"><b>Member Status: <span class="text_red">*</span></b></td>
+          <td><select name="ddlMemberStatus" id="ddlMemberStatus">
+                <option>Please Select</option>
+                <?php foreach ($result_memberstatus as $key => $val) {
+                  $strselected = ($r_fkmemberstatusid === (string) $key) ? 'selected' : '';
+                  ?>
+                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
+                <?php } ?>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%"><b>Member Type: <span class="text_red">*</span></b></td>
+          <td><select name="ddlMemberType" id="ddlMemberType">
+                <option>Please Select</option>
+                <?php foreach ($result_membertype as $key => $val) {
+                  $strselected = ($r_fkmembertypeid === (string) $key) ? 'selected' : '';
+                  ?>
+                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
+                <?php } ?>
+              </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%"><b>Member Type Status: <span class="text_red">*</span></b></td>
+          <td><select name="ddlMemberTypeStatus" id="ddlMemberTypeStatus">
+                <option>Please Select</option>
+                <?php foreach ($result_membertypestatus as $key => $val) {
+                  $strselected = ($r_fkmembertypestatusid === (string) $key) ? 'selected' : '';
+                  ?>
+                  <option value="<?php echo $key; ?>" <?php echo $strselected; ?>><?php echo $val; ?></option>
+                <?php } ?>
+              </select>
           </td>
         </tr>
         <tr>
@@ -384,8 +600,27 @@ if ($p_member_id) {
         </tr>
         <tr>
           <td><b>Date of Birth: <span class="text_red">*</span></b></td>
-          <td><?php echo $common->showDateOfBirth($r_dob_day, $r_dob_month, $r_dob_year); ?>
-          </td>
+          <td><?php echo $common->showDateControl('ddldobDay', 'ddldobMonth', 'ddldobYear', $r_dob_day, $r_dob_month, $r_dob_year); ?></td>
+        </tr>
+        <tr>
+          <td><b>Date of Enrolled: <span class="text_red">*</span></b></td>
+          <td><?php echo $common->showDateControl('ddlEnrolledDay', 'ddlEnrolledMonth', 'ddlEnrolledYear', $r_dateenrolled_day, $r_dateenrolled_month, $r_dateenrolled_year); ?></td>
+        </tr>
+        <tr>
+          <td><b>Date of Approved: <span class="text_red">*</span></b></td>
+          <td><?php echo $common->showDateControl('ddlApprovedDay', 'ddlApprovedMonth', 'ddlApprovedYear', $r_dateapproved_day, $r_dateapproved_month, $r_dateapproved_year); ?></td>
+        </tr>
+        <tr>
+          <td><b>Date of Next Renewal Year: <span class="text_red">*</span></b></td>
+          <td><?php echo $common->showDateControl('ddlNextRenewalDay', 'ddlNextRenewalMonth', 'ddlNextRenewalYear', $r_datenextrenewal_day, $r_datenextrenewal_month, $r_datenextrenewal_year); ?></td>
+        </tr>
+        <tr>
+          <td><b>Date of Converted Year: <span class="text_red">*</span></b></td>
+          <td><?php echo $common->showDateControl('ddlConvertedDay', 'ddlConvertedMonth', 'ddlConvertedYear', $r_dateconverted_day, $r_dateconverted_month, $r_dateconverted_year); ?></td>
+        </tr>
+        <tr>
+          <td><b>Date of Terminated Year: <span class="text_red">*</span></b></td>
+          <td><?php echo $common->showDateControl('ddlTerminatedDay', 'ddlTerminatedMonth', 'ddlTerminatedYear', $r_dateterminated_day, $r_dateterminated_month, $r_dateterminated_year); ?></td>
         </tr>
         <tr>
           <td><b>Gender: <span class="text_red">*</span></b></td>
@@ -464,10 +699,6 @@ if ($p_member_id) {
             </td>
           </tr>
   <?php } ?>
-        <tr>
-          <td><b>Change Password: <span class="text_red">*</span></b></td>
-          <td><input type="text" id="f_password" size="80" maxlength="250" value="<?php echo $r_password; ?>"></td>
-        </tr>
         <tr>
           <td colspan="2">&nbsp;</td>
         </tr>

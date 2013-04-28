@@ -1,0 +1,166 @@
+/*
+	INGiafam MMS - Global CSS
+	
+	Created By: RYC
+	v1.0
+*/
+
+/*
+	Standard
+	--------------------
+*/
+
+html { 
+	height: 100%; 
+	overflow-y: scroll;
+}
+
+body { 
+	background: url(../images/bg.jpg);
+}
+
+p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset, figure {
+	margin-bottom: 8px;
+}
+
+a, a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/*
+	Form Input
+	--------------------
+*/
+
+input { 
+	font-size: 12px; 
+	color: #000; 
+	text-align: justify; 
+	padding: 3px; 
+}
+
+select { 
+	font-size: 14px;	
+	color: #000; 
+	text-align: justify; 
+	padding: 3px; 
+}
+
+textarea {
+	font-size: 12px; 
+	color: #000; 
+	padding: 3px; 
+}
+
+
+/*
+	Table Class
+	--------------------
+*/
+
+.table_general tr td {
+	padding: 8px;
+}
+
+.table_list tr th {
+	background-color: #424242;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding: 6px;
+}
+
+.table_list tr td {
+	padding: 6px;
+}
+
+.table_list tr:hover {
+	background-color: #D8D8D8;
+}
+
+/*
+	Pagination
+	--------------------
+*/
+
+#pagination {
+	min-width: 80%;
+	height: 20px;
+}
+
+#pagination_number { 
+	width: auto; 
+	padding: 10px; 
+	overflow: auto; 
+	float: left; 
+}
+
+#pagination_number a { 
+	width: 20px; 
+	height: 18px; 
+	padding-top: 2px; 
+	margin: 2px; 
+	font-family: Arial, sans-serif; 
+	font-size: 11px; 
+	color: #CCCCCC;
+	text-decoration: none;
+	display: block; 
+	float: left; 
+	text-align: center;
+	background-color: #312E30;	 
+}
+
+#pagination_number a:hover { 
+	background-color: #C03028; 
+	color: #CCCCCC;
+	text-decoration: none;	 
+}
+
+#pagination_number a.on { 
+	background-color: #C03028; 
+	color: #CCCCCC;
+	font-weight: normal;
+	text-decoration: none;	
+}
+
+
+/*
+	Custom Class - Buttons
+	--------------------
+*/
+
+.button_blue {
+	padding: 5px 10px; 
+	font-size: 15px; 
+	color: #FFFFFF; 
+	background-color: #2454A6; 
+	border: 1px #6E6E6E solid; 
+	text-align: center;
+	cursor: pointer;
+}
+
+.button_orange {
+	padding: 5px 10px; 
+	font-size: 15px; 
+	color: #ffffff; 
+	background-color: #FF4000; 
+	border: 1px #6E6E6E solid; 
+	text-align: center;
+	cursor: pointer;
+}
+
+
+/*
+	Custom Class - Others
+	--------------------
+*/
+
+.reset	{ 
+	height: 1px; 
+	display: block; 
+	position: relative; 
+	clear: both; 
+}
